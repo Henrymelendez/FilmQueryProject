@@ -39,20 +39,20 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		
 		while(rs.next()) {
 		
-		int id = rs.getInt("id");
+		Integer id = rs.getInt("id");
 		String title = rs.getString("title");
 		String description = rs.getString("description");
-		short releaseYear = rs.getShort("release_year");
-		int languageId = rs.getInt("release_year");
-		int rentalDuration = rs.getInt("rental_duration");
-		double rentalRate = rs.getDouble("rental_rate");
-		int length = rs.getInt("length");
-		double replacementCost = rs.getDouble("replacement_cost");
+		Short releaseYear = rs.getShort("release_year");
+		Integer languageId = rs.getInt("language_id");
+		Integer rentalDuration = rs.getInt("rental_duration");
+		Double rentalRate = rs.getDouble("rental_rate");
+		Integer length = rs.getInt("length");
+		Double replacementCost = rs.getDouble("replacement_cost");
 		String rating = rs.getString("rating");
 		String specialFeatures = rs.getString("special_features");
 		
 		
-		movie = new Film(id, title, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
+		movie = new Film(id, title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
 		
 		movie.setActors(findActorsByFilmId(filmId));
 		
@@ -65,8 +65,13 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
+		if(movie == null) {
+			return null;
+		}else {
+			
+			return movie;
+		}
 		
-		return movie;
 	}
 	
 	
@@ -85,7 +90,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			ResultSet rs = pStatement.executeQuery();
 			
 			while (rs.next()) {
-			int id = rs.getInt("id");
+			Integer id = rs.getInt("id");
 			String firstName = rs.getString("first_name");
 			String lastName = rs.getString("last_name");
 			
@@ -98,8 +103,14 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		if(actor == null) {
+			return null;
+			
+		}else {
 	
 		return actor;
+		}
 	}
 	
 	
@@ -118,7 +129,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			statement.setInt(1, filmId);
 			ResultSet rs = statement.executeQuery();
 			while (rs.next()) {
-			int id = rs.getInt("id");
+			Integer id = rs.getInt("id");
 			String firstName = rs.getString("first_name");
 			String lastName = rs.getString("last_name");
 			
@@ -137,11 +148,20 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			e.printStackTrace();
 		}
 				
+		if(actors.isEmpty()) {
+			
+			return null;
+		}
+		else {
+			return actors;
+			
+		}
 		
 		
-		
-		
-		return actors;
 	}
+	
+	
+	
+	
 
 }

@@ -4,14 +4,15 @@ import java.util.List;
 import java.util.Objects;
 
 public class Film {
-	private int filmId;
+	private Integer filmId;
 	private String title;
-	private short releaseYear;
-	private int languageId;
-	private int rentalDuration;
-	private double rentalRate;
-	private int length;
-	private double replacementCost;
+	private String description;
+	private Short releaseYear;
+	private Integer languageId;
+	private Integer rentalDuration;
+	private Double rentalRate;
+	private Integer length;
+	private Double replacementCost;
 	private String rating;
 	private String specialFeatures;
 	List<Actor> actors;
@@ -42,11 +43,12 @@ public class Film {
 	
 	
 	
-	public Film(int filmId, String title, short releaseYear, int languageId, int rentalDuration, double rentalRate,
+	public Film(int filmId, String title, String description, short releaseYear, int languageId, int rentalDuration, double rentalRate,
 			int length, double replacementCost, String rating, String specialFeatures) {
 		super();
 		this.filmId = filmId;
 		this.title = title;
+		this.description = description;
 		this.releaseYear = releaseYear;
 		this.languageId = languageId;
 		this.rentalDuration = rentalDuration;
@@ -254,16 +256,16 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return "Films\n filmId: " + filmId + ",\n title: " + title + ",\n releaseYear: " + releaseYear + ",\n languageId: "
-				+ languageId + ", rentalDuration: " + rentalDuration + ",\n rentalRate: " + rentalRate + ",\n length: "
-				+ length + ",\n replacementCost: " + replacementCost + ",\n rating: " + rating + ",\n specialFeatures: "
-				+ specialFeatures + ",\n actors: " + actors;
+		return "Films\n film Id: " + filmId + ",\n title: " + title + ",\n release Year: " + releaseYear + ",\n languageId: "
+				+ languageId + ",\n rental Duration: " + rentalDuration + ",\n rental Rate: " + rentalRate + ",\n length: "
+				+ length + ",\n replacement Cost: " + replacementCost + ",\n rating: " + rating + ",\n specialFeatures: "
+				+ specialFeatures + ",\n Actors: " + actors +"\n Description: " + description ;
 	}
 
 
 
 
-
+	
 
 	
 	

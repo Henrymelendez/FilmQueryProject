@@ -32,10 +32,21 @@ public class FilmQueryApp {
   }
 
   private void startUserInterface(Scanner input) {
-   
-    
-    
-    
+	  
+	  System.out.println("WELCOME TO THE FILM QUERY APP");
+	  System.out.println("1.) Look up Film by its Id");
+	  System.out.print("2.) Look up a film by a seach keyword");
+	  
+	  int choice = input.nextInt();
+	  
+	  
+	  switch(choice) {
+	  
+	  case 1:
+		  System.out.print("Input a film Id: ");
+		  Scanner filmId = input.nextInt();
+	  
+	  }
     
     
   }
