@@ -3,6 +3,8 @@ package com.skilldistillery.filmquery.entities;
 import java.util.List;
 import java.util.Objects;
 
+import org.junit.experimental.categories.Categories;
+
 public class Film {
 	private Integer filmId;
 	private String title;
@@ -15,21 +17,13 @@ public class Film {
 	private Double replacementCost;
 	private String rating;
 	private String specialFeatures;
+	private String category; 
 	List<Actor> actors;
 	
 	
 	
-	public List<Actor> getActors() {
-		return actors;
-	}
+	
 
-
-
-
-
-	public void setActors(List<Actor> actors) {
-		this.actors = actors;
-	}
 
 
 
@@ -42,9 +36,15 @@ public class Film {
 	
 	
 	
-	
+
+
+
+
+
+
+
 	public Film(int filmId, String title, String description, short releaseYear, String language, int rentalDuration, double rentalRate,
-			int length, double replacementCost, String rating, String specialFeatures) {
+			int length, double replacementCost, String rating, String specialFeatures, String category) {
 		super();
 		this.filmId = filmId;
 		this.title = title;
@@ -57,7 +57,10 @@ public class Film {
 		this.replacementCost = replacementCost;
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
+		this.category = category;
 	}
+	
+	
 
 
 
@@ -218,6 +221,25 @@ public class Film {
 	public void setSpecialFeatures(String specialFeatures) {
 		this.specialFeatures = specialFeatures;
 	}
+	
+	
+	
+
+
+
+
+
+	public List<Actor> getActors() {
+		return actors;
+	}
+
+
+
+
+
+	public void setActors(List<Actor> actors) {
+		this.actors = actors;
+	}
 
 
 
@@ -256,7 +278,8 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return "Film\n film Id: " + filmId + ",\n title: " + title + ",\n year: " + releaseYear + ",\n rating: " + rating + ",\n description: " + description;
+		return "Film\n film Id: " + filmId + ",\n title: " + title + ",\n year: " + releaseYear + ",\n rating: " + rating + 
+				",\n description: " + description + ",\n Language : " + language + ",\n actors: " + actors + ",\n Category: " + category;
 	}
 	
 	

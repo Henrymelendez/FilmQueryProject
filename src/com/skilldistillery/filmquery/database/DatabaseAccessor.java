@@ -12,5 +12,9 @@ public interface DatabaseAccessor {
   
   public List<Actor> findActorsByFilmId(int filmId);
   
-  public Film findLikeWord(String word);
+  public List<Film> findLikeWord(String word);
+  
+
+  
+  
 }

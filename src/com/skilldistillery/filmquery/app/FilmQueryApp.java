@@ -1,6 +1,9 @@
 package com.skilldistillery.filmquery.app;
 
+import java.util.List;
 import java.util.Scanner;
+
+
 
 import com.skilldistillery.filmquery.database.DatabaseAccessor;
 import com.skilldistillery.filmquery.database.DatabaseAccessorObject;
@@ -12,8 +15,8 @@ public class FilmQueryApp {
 
 	public static void main(String[] args) {
 		FilmQueryApp app = new FilmQueryApp();
-		app.test();
-//    app.launch();
+//		app.test();
+    app.launch();
 	}
 
 	private void test() {
@@ -39,6 +42,7 @@ public class FilmQueryApp {
 			System.out.println("WELCOME TO THE FILM QUERY APP");
 			System.out.println("1.) Look up Film by its Id");
 			System.out.println("2.) Look up a film by a search keyword");
+			System.out.println("3.) Exit the application");
 			System.out.print("Enter A Choice: ");
 			int choice = input.nextInt();
 
@@ -51,15 +55,32 @@ public class FilmQueryApp {
 				if (a == null) {
 					System.out.println("Sorry There is No Film by that Number!!");
 				}
-
+				System.out.println();
+				System.out.println(a);
+				System.out.println();
 				break;
 			case 2:
+				input.nextLine();
 				System.out.println("Enter an a keyword: ");
 				String keyword = input.nextLine();
-
+				List<Film> lookUp = db.findLikeWord(keyword);
+				if(lookUp == null) {
+					System.out.println("sorry that fill doesnt exist");
+				}
+				for(Film list : lookUp) {
+					System.out.println(list);
+				}
+				System.out.println();
 				break;
 
+			case 3:
+				keepGoing = false;
+				break;
+				
+			default :
+				System.out.println("Invalid Choice Try again");
 			}
+			
 
 		} while (keepGoing == true);
 
