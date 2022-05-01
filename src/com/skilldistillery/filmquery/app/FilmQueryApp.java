@@ -101,7 +101,9 @@ public class FilmQueryApp {
 			
 
 		} while (keepGoing == true);
-
+		
+		input.close();
 	}
+	
 
 }
