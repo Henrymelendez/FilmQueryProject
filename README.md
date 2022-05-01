@@ -65,6 +65,12 @@ Write JUnit tests for DatabaseAccessorObject's methods.
 
 ## Installation
 
+##### Technology needed 
+- Unix based terminal 
+- Eclipse or some other JVM based IDE
+- MAMP base not pro
+
+
 Use Mysql database server [MAMP](https://www.mamp.info) to install MAMP basic not pro
 
 next set up your zhrc files in your text editor 
@@ -75,7 +81,7 @@ atom .zhrc
 Next set up your cnf file
  
 ```bash 
-/etc/my.cnf
+atom /etc/my.cnf
 ```
 
 after your setup go to preferences and un check everything but start server in the general tab
