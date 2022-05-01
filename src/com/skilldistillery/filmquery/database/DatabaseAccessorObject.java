@@ -254,9 +254,13 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		if(inventory.isEmpty()) {
+			return null;
+		} else {
+			
+			return inventory;
+		}
 		
-		
-		return inventory;
 		
 	}
 
