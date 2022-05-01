@@ -3,7 +3,7 @@ package com.skilldistillery.filmquery.entities;
 import java.util.List;
 import java.util.Objects;
 
-import org.junit.experimental.categories.Categories;
+
 
 public class Film {
 	private Integer filmId;
@@ -19,6 +19,7 @@ public class Film {
 	private String specialFeatures;
 	private String category; 
 	List<Actor> actors;
+	List<Inventory> inventory;
 	
 	
 	
@@ -240,6 +241,33 @@ public class Film {
 	public void setActors(List<Actor> actors) {
 		this.actors = actors;
 	}
+	
+	
+	
+
+
+
+
+
+	public List<Inventory> getInventory() {
+		return inventory;
+	}
+
+
+
+
+
+
+
+
+
+
+
+	public void setInventory(List<Inventory> inventory) {
+		this.inventory = inventory;
+	}
+
+
 
 
 
@@ -279,17 +307,16 @@ public class Film {
 	@Override
 	public String toString() {
 		return "Film\n film Id: " + filmId + ",\n title: " + title + ",\n year: " + releaseYear + ",\n rating: " + rating + 
-				",\n description: " + description + ",\n Language : " + language + ",\n actors: " + actors + ",\n Category: " + category;
+				",\n description: " + description + ",\n Language : " + language + ",\n actors: " + actors;
 	}
 	
 	
 	
 	public String PrintDetails() {
 		
-		return "Films\n film Id: " + filmId + ",\n title: " + title + ",\n release Year: " + releaseYear + ",\n languageId: "
-				+ language + ",\n rental Duration: " + rentalDuration + ",\n rental Rate: " + rentalRate + ",\n length: "
-				+ length + ",\n replacement Cost: " + replacementCost + ",\n rating: " + rating + ",\n specialFeatures: "
-				+ specialFeatures + ",\n Actors: " + actors +"\n Description: " + description ;
+		return "Film Detail\n " + "Category: " + category + ",\n rental Duration: " + rentalDuration + ",\n rental Rate: " + rentalRate + ",\n length: "
+				+ length + ",\n replacement Cost: " + replacementCost  + ",\n specialFeatures: "
+				+ specialFeatures + ",\n Inventory: " + inventory +"\n" ;
 	}
 
 

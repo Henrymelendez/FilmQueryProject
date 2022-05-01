@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.skilldistillery.filmquery.entities.Actor;
 import com.skilldistillery.filmquery.entities.Film;
+import com.skilldistillery.filmquery.entities.Inventory;
 
 public class DatabaseAccessorObject implements DatabaseAccessor {
 	public static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";
@@ -60,6 +61,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		movie = new Film(id, title, description, releaseYear, language, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures, category);
 		
 		movie.setActors(findActorsByFilmId(filmId));
+		
+		movie.setInventory(getFilmInvetoryById(filmId));
 		
 		}
 		
@@ -202,9 +205,12 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				Film res = new Film(id, title, description, releaseYear, language, rentalDuration, rentalRate, length, replacementCost, rating, specialFeature, category);
 				res.setActors(findActorsByFilmId(id));
 				result.add(res);
-				
 		
 			}
+			
+			rs.close();
+			statement.close();
+			conn.close();
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -218,7 +224,41 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	}
 
-
+	public List<Inventory> getFilmInvetoryById(int filmId){
+		
+		List<Inventory> inventory = new ArrayList<>();
+		
+		String sql = "SELECT media_condition, COUNT(film_id) AS \"Inventory\" "
+				+ "FROM inventory_item WHERE film_id = ?"
+				+ " GROUP BY media_condition;";
+		
+		try {
+			Connection conn = DriverManager.getConnection(URL, user, password);
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, filmId);
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				String condition = rs.getString("media_condition");
+				Integer count = rs.getInt("Inventory");
+				
+				Inventory stock = new Inventory(condition, count);
+				
+				inventory.add(stock);
+				
+				
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return inventory;
+		
+	}
 
 
 

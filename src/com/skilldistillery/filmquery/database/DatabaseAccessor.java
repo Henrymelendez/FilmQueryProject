@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.skilldistillery.filmquery.entities.Actor;
 import com.skilldistillery.filmquery.entities.Film;
+import com.skilldistillery.filmquery.entities.Inventory;
 
 public interface DatabaseAccessor {
   public Film findFilmById(int filmId);
@@ -14,7 +15,7 @@ public interface DatabaseAccessor {
   
   public List<Film> findLikeWord(String word);
   
-
+  public List<Inventory> getFilmInvetoryById(int filmId);
   
   
 }

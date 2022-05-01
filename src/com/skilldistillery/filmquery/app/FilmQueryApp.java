@@ -55,9 +55,27 @@ public class FilmQueryApp {
 				if (a == null) {
 					System.out.println("Sorry There is No Film by that Number!!");
 				}
+				
+				
 				System.out.println();
 				System.out.println(a);
 				System.out.println();
+				System.out.println("Do you want details on the film ?");
+				System.out.println("1.) To view details ");
+				System.out.println("2.) Return to main menu");
+				System.out.print("Enter a choive: ");
+				int submenu = input.nextInt();
+				if(submenu == 1) {
+					System.out.println();
+					System.out.println(a.PrintDetails());
+					System.out.println();
+				}
+				else {
+					System.out.println();
+					break;
+				}
+				
+				
 				break;
 			case 2:
 				input.nextLine();
