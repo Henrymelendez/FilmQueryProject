@@ -2,7 +2,7 @@
 
 
 ## Description 
-An Application that returns film information 
+An Application that returns film information based on film ids or lookup films based on keywords and return the result to the user.
 
 ## Technologies / Skills Used
 
