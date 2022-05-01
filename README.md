@@ -8,7 +8,6 @@ An Application that returns film information based on film ids or lookup films b
 
 * Eclipse
 * MySQL
-* DAO Design
 * J Unit
 * Maven 
 * Array Lists
