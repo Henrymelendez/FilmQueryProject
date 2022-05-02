@@ -63,7 +63,7 @@ public class FilmQueryApp {
 				System.out.println("Do you want details on the film ?");
 				System.out.println("1.) To view details ");
 				System.out.println("2.) Return to main menu");
-				System.out.print("Enter a choive: ");
+				System.out.print("Enter a choice: ");
 				int submenu = input.nextInt();
 				if(submenu == 1) {
 					System.out.println();

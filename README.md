@@ -102,7 +102,7 @@ mysql> SOURCE C:/temp/sakila-db/sakila-data.sql;
 mysql> USE sakila;
 ```
 
-now download the project into you projects in you favorite IDE
+now download the project into your projects in you favorite IDE
 and hit run
 
 ## Lessons Learned 
