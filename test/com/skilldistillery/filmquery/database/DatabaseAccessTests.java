@@ -1,7 +1,9 @@
 package com.skilldistillery.filmquery.database;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import java.awt.BufferCapabilities.FlipContents;
 import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
@@ -61,6 +63,34 @@ class DatabaseAccessTests {
   void test_findLikeWord_with_invalid_input() {
 	  List<Film> keyword = db.findLikeWord("#");
 	  assertNull(keyword);
+  }
+  
+  
+  @Test
+  @DisplayName("Test that get film by Id with valid id has proper id in film object")
+  void test_FilmInvetorybyId_with_valid_value() {
+	  Film films = db.findFilmById(1);
+	  
+	  assertEquals(1, films.getFilmId() );
+	  
+  }
+  
+  @Test
+  @DisplayName("Test get Film Inventory returns proper inventory value")
+  void test_filmByInventory_inventory_value() {
+	  List<Inventory> inventory = db.getFilmInvetoryById(1);
+	  
+	  assertEquals(5, inventory.get(0).getCount());
+  }
+  
+  
+  @Test
+  @DisplayName("Test FindLikeWord method return the proper film by title")
+  void test_findLikeWord_return_proper_value() {
+	  List<Film> output = db.findLikeWord("vamp");
+	  
+	  assertEquals("VAMPIRE WHALE", output.get(0).getTitle());
+	  
   }
   
   
