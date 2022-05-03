@@ -84,9 +84,10 @@ public class FilmQueryApp {
 				List<Film> lookUp = db.findLikeWord(keyword);
 				if(lookUp == null) {
 					System.out.println("sorry that fill doesnt exist");
-				}
+				} else {
 				for(Film list : lookUp) {
 					System.out.println(list);
+				}
 				}
 				System.out.println();
 				break;
